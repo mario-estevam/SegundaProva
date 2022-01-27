@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_homeFragment_to_detalhesFragment"
             app:destination="@id/detalhesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_sobreFragment"
+            app:destination="@id/sobreFragment" />
     </fragment>
     <fragment
         android:id="@+id/cadastroFragment"
@@ -40,4 +43,9 @@
             android:name="id"
             app:argType="long" />
     </fragment>
+    <fragment
+        android:id="@+id/sobreFragment"
+        android:name="com.mariobr.segundaprova.fragments.SobreFragment"
+        android:label="Sobre"
+        tools:layout="@layout/fragment_sobre" />
 </navigation>

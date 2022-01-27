@@ -4,7 +4,7 @@
 
     <item android:title="@string/home" android:id="@+id/homeFragment"/>
     <item android:title="@string/cadastro" android:id="@+id/cadastroFragment"/>
-    <item android:title="@string/alterar" android:id="@+id/alteraFragment"/>
+    <item android:title="Sobre" android:id="@+id/sobreFragment"/>
 
 
 

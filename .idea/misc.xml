@@ -5,11 +5,14 @@
       <map>
         <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/anime_card_inflater.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/anime_inflater.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/drawer_header.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_altera.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_cadastro.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_detalhes.xml" value="0.1" />
         <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_home.xml" value="0.24010416666666667" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication2/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/fragment_sobre.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication2/app/src/main/res/menu/menu.xml" value="0.1" />
+        <entry key="..\:/Users/User/AndroidStudioProjects/MyApplication2/app/src/main/res/menu/options.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

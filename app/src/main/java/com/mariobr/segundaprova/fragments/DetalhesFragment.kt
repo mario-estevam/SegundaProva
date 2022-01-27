@@ -38,16 +38,13 @@ class DetalhesFragment : Fragment() {
         val args:DetalhesFragmentArgs by navArgs()
         val x = args.id + 1
         val encontrarAnime  = animeRepository.findById(x.toInt())
-
         binding.editTextnome.text = encontrarAnime.nome
         binding.editTextTexteps.text = encontrarAnime.eps.toString()
         binding.editTextArcos.text = encontrarAnime.arcos
         binding.editTextAno.text = encontrarAnime.ano.toString()
         binding.editTextIdioma.text = encontrarAnime.idioma
         binding.editTextTextClassificacao.text = encontrarAnime.classificacao.toString()
-
         setHasOptionsMenu(true)
         return binding.root
     }
-
 }

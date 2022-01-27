@@ -1,5 +1,7 @@
 package com.mariobr.segundaprova.fragments
 
+import AlteraViewModel
+import SobreViewModel
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,33 +17,30 @@ import androidx.room.Room
 import com.mariobr.segundaprova.R
 import com.mariobr.segundaprova.animes.AppDatabase
 import com.mariobr.segundaprova.databinding.FragmentAlteraBinding
-import com.mariobr.segundaprova.viewModels.AlteraViewModel
+import com.mariobr.segundaprova.viewModels.AlteraViewModelFactory
+
 
 lateinit var bindingAltera:FragmentAlteraBinding
 @SuppressLint("UseRequireInsteadOfGet")
 class AlteraFragment : Fragment() {
 
     lateinit var viewModelAltera:AlteraViewModel
-    val db: AppDatabase by lazy{
-        Room.databaseBuilder(
-            context!!,
-            AppDatabase::class.java, "database-name")
-            .allowMainThreadQueries()
-            .build()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         bindingAltera= DataBindingUtil.inflate(inflater, R.layout.fragment_altera, container, false)
-        viewModelAltera = ViewModelProvider(this,).get(AlteraViewModel::class.java)
-        bindingAltera.alteraViewModel = viewModelAltera
+
+        val viewModelFactory = AlteraViewModelFactory(requireContext())
+        viewModelAltera = ViewModelProvider(this, viewModelFactory).get(AlteraViewModel::class.java)
+        bindingAltera.alteraViewModel = viewModelFactory
+
         val args:AlteraFragmentArgs by navArgs()
         val x = args.id + 1
-        viewModelAltera.findByid(x.toInt())
+        viewModelFactory.findByid(x.toInt())
         bindingAltera.alterar.setOnClickListener {
-            viewModelAltera.saveAnime()
+            viewModelFactory.saveAnime()
             Navigation.findNavController(it).navigate(R.id.homeFragment)
             Toast.makeText(context, "Dados alterados com sucesso!", Toast.LENGTH_SHORT).show()
         }
