@@ -51,7 +51,7 @@ class HomeFragment : Fragment() {
                 Navigation.findNavController(v).navigate(HomeFragmentDirections.actionHomeFragmentToDetalhesFragment(position.toLong()))
             }
             override fun onItemLongClick(v: View, position: Int) {
-               // Navigation.findNavController(v).navigate(HomeFragmentDirections.actionHomeFragmentToAlteraFragment(position.toLong()))
+                Navigation.findNavController(v).navigate(HomeFragmentDirections.actionHomeFragmentToAlteraFragment(position.toLong()))
             }
         }))
         setHasOptionsMenu(true)

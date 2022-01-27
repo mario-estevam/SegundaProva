@@ -22,6 +22,12 @@
         android:gravity="center_vertical"
         >
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:layout_marginLeft="10dp"
+            android:text="Nome do anime:" />
 
         <TextView
             android:layout_width="0dp"
@@ -40,7 +46,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/nota"
+            android:id="@+id/ano"
             android:layout_weight="3"
             />
 

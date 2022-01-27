@@ -21,7 +21,7 @@ class NovoAnimeAdapter : RecyclerView.Adapter<NovoAnimeViewHolder>() {
 
     override fun onBindViewHolder(holder: NovoAnimeViewHolder, position: Int) {
         val animeEscolhido = animes.get(position)
-        holder.nota.text = animeEscolhido.nota.toString()
+        holder.ano.text = animeEscolhido.ano.toString()
         holder.nomeAnime.text = animeEscolhido.nome
         holder.eps.text = animeEscolhido.eps.toString()
     }
@@ -33,7 +33,7 @@ class NovoAnimeAdapter : RecyclerView.Adapter<NovoAnimeViewHolder>() {
 }
 
 class NovoAnimeViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-    val nota = v.findViewById<TextView>(R.id.nota)
+    val ano = v.findViewById<TextView>(R.id.ano)
     val nomeAnime = v.findViewById<TextView>(R.id.nomeAnime)
     val eps = v.findViewById<TextView>(R.id.eps)
 }

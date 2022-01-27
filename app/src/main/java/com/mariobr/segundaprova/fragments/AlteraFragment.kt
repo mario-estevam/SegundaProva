@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import androidx.room.Room
 import com.mariobr.segundaprova.R
@@ -35,11 +36,15 @@ class AlteraFragment : Fragment() {
     ): View? {
         bindingAltera= DataBindingUtil.inflate(inflater, R.layout.fragment_altera, container, false)
         viewModelAltera = ViewModelProvider(this,).get(AlteraViewModel::class.java)
-        // Inflate the layout for this fragment
-        val array =  db.animeDao().listAll()
-        val args: AlteraFragmentArgs by navArgs()
-        viewModelAltera.x = args.id.toInt()
-        viewModelAltera.setAtributtes()
+        bindingAltera.alteraViewModel = viewModelAltera
+        val args:AlteraFragmentArgs by navArgs()
+        val x = args.id + 1
+        viewModelAltera.findByid(x.toInt())
+        bindingAltera.alterar.setOnClickListener {
+            viewModelAltera.saveAnime()
+            Navigation.findNavController(it).navigate(R.id.homeFragment)
+            Toast.makeText(context, "Dados alterados com sucesso!", Toast.LENGTH_SHORT).show()
+        }
 
         setHasOptionsMenu(true)
         return bindingAltera.root

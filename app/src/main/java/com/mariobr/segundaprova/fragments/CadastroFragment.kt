@@ -6,8 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
 import com.mariobr.segundaprova.R
 import com.mariobr.segundaprova.databinding.FragmentCadastroBinding
 import com.mariobr.segundaprova.viewModels.ViewModelCadastro
@@ -27,7 +29,9 @@ class CadastroFragment : Fragment() {
         viewModel = ViewModelProvider(this,).get(ViewModelCadastro::class.java)
         bindingCadastro.viewModelCadastro = viewModel
         bindingCadastro.cadastrar.setOnClickListener {
-          viewModel.salvarAnime()
+            viewModel.salvarAnime()
+            Navigation.findNavController(it).navigate(R.id.homeFragment)
+            Toast.makeText(context, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
         }
         setHasOptionsMenu(true)
         return bindingCadastro.root

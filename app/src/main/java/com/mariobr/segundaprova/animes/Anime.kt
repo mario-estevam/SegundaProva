@@ -14,5 +14,5 @@ data class Anime (
     var classificacao:Int
 ){
     @PrimaryKey(autoGenerate = true)
-    var id:Long = 0;
+    var id:Int = 0;
 }
