@@ -5,8 +5,8 @@
 
     <data>
         <variable
-            name="viewModelCadastro"
-            type="com.mariobr.segundaprova.viewModels.ViewModelCadastro" />
+            name="viewModel"
+            type="com.mariobr.segundaprova.viewModels.ViewModelCadastroFactory" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -94,7 +94,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="@={viewModelCadastro.nome}"
+            android:text="@={viewModel.nome}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.706"
@@ -110,7 +110,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:minHeight="48dp"
-            android:text="@={viewModelCadastro.arcos}"
+            android:text="@={viewModel.arcos}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.706"
@@ -125,7 +125,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@={`` +viewModelCadastro.eps}"
+            android:text="@={`` +viewModel.eps}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.706"
@@ -140,7 +140,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@={`` +viewModelCadastro.classificacao}"
+            android:text="@={`` +viewModel.classificacao}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.706"
@@ -155,7 +155,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:text="@={`` +viewModelCadastro.ano}"
+            android:text="@={`` +viewModel.ano}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.706"
@@ -170,7 +170,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="@={viewModelCadastro.idiomas}"
+            android:text="@={viewModel.idiomas}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.706"

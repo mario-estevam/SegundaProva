@@ -12,7 +12,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.mariobr.segundaprova.R
 import com.mariobr.segundaprova.databinding.FragmentCadastroBinding
+import com.mariobr.segundaprova.viewModels.AlteraViewModelFactory
 import com.mariobr.segundaprova.viewModels.ViewModelCadastro
+import com.mariobr.segundaprova.viewModels.ViewModelCadastroFactory
 
 lateinit var bindingCadastro:FragmentCadastroBinding
 
@@ -26,10 +28,13 @@ class CadastroFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         bindingCadastro= DataBindingUtil.inflate(inflater, R.layout.fragment_cadastro, container, false)
-        viewModel = ViewModelProvider(this,).get(ViewModelCadastro::class.java)
-        bindingCadastro.viewModelCadastro = viewModel
+        val viewModelFactory = ViewModelCadastroFactory(requireContext())
+        viewModel = ViewModelProvider(this, viewModelFactory).get(ViewModelCadastro::class.java)
+
+        bindingCadastro.viewModel = viewModelFactory
+
         bindingCadastro.cadastrar.setOnClickListener {
-            viewModel.salvarAnime()
+            viewModelFactory.salvarAnime()
             Navigation.findNavController(it).navigate(R.id.homeFragment)
             Toast.makeText(context, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
         }

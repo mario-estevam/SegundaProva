@@ -1,7 +1,6 @@
 package com.mariobr.segundaprova.fragments
 
 import AlteraViewModel
-import SobreViewModel
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -13,9 +12,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
-import androidx.room.Room
 import com.mariobr.segundaprova.R
-import com.mariobr.segundaprova.animes.AppDatabase
 import com.mariobr.segundaprova.databinding.FragmentAlteraBinding
 import com.mariobr.segundaprova.viewModels.AlteraViewModelFactory
 

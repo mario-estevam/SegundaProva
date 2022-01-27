@@ -14,20 +14,21 @@ import com.mariobr.segundaprova.R
 import com.mariobr.segundaprova.animes.AppDatabase
 import com.mariobr.segundaprova.databinding.FragmentAlteraBinding
 import com.mariobr.segundaprova.databinding.FragmentDetalhesBinding
-import com.mariobr.segundaprova.repositories.AnimeRepository
+
 
 
 @SuppressLint("UseRequireInsteadOfGet")
 class DetalhesFragment : Fragment() {
 
-    lateinit var animeRepository: AnimeRepository
+    val db: AppDatabase by lazy{
+        Room.databaseBuilder(
+            context!!,
+            AppDatabase::class.java, "database-name")
+            .allowMainThreadQueries()
+            .build()
+    }
 
     lateinit var binding:FragmentDetalhesBinding
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        animeRepository = AnimeRepository(context)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,7 +38,7 @@ class DetalhesFragment : Fragment() {
         // Inflate the layout for this fragment
         val args:DetalhesFragmentArgs by navArgs()
         val x = args.id + 1
-        val encontrarAnime  = animeRepository.findById(x.toInt())
+        val encontrarAnime  = db.animeDao().findById(x.toInt())
         binding.editTextnome.text = encontrarAnime.nome
         binding.editTextTexteps.text = encontrarAnime.eps.toString()
         binding.editTextArcos.text = encontrarAnime.arcos
