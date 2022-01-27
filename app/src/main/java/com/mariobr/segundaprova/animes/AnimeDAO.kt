@@ -1,5 +1,6 @@
 package com.mariobr.segundaprova.animes
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
@@ -23,13 +24,13 @@ interface AnimeDAO {
     fun atualizar(anime: Anime):Int
 
     @Query("SELECT * FROM tb_anime")
-    fun listAll(): Array<Anime>
+    fun listAll(): LiveData<List<Anime>>
 
     @Query("SELECT * FROM tb_anime")
     fun listAllAdapter(): MutableList<Anime>
 
     @Query("SELECT * FROM tb_anime WHERE id=:id")
-    fun findById(id:Long):Anime
+    fun findById(id: Int):Anime
 
     @Query("SELECT * FROM tb_anime WHERE nome=:nome")
     fun findByName(nome:String):Anime

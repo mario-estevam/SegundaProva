@@ -10,7 +10,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.navArgs
 import androidx.room.Room
 import com.mariobr.segundaprova.R
-import com.mariobr.segundaprova.animes.Anime
 import com.mariobr.segundaprova.animes.AppDatabase
 import com.mariobr.segundaprova.databinding.FragmentAlteraBinding
 import com.mariobr.segundaprova.databinding.FragmentDetalhesBinding
@@ -34,14 +33,14 @@ class DetalhesFragment : Fragment() {
     ): View? {
         binding= DataBindingUtil.inflate(inflater, R.layout.fragment_detalhes, container, false)
         // Inflate the layout for this fragment
-        val args:DetalhesFragmentArgs by navArgs()
-        val x = args.id + 1
-        val animeEncontrado = db.animeDao().findById(x)
-        binding.editTextTextnota.text = animeEncontrado.nota.toString()
-        binding.editTextnome.text = animeEncontrado.nome
-        binding.editTextTexteps.text = animeEncontrado.eps.toString()
-        binding.editTextTextClassificacao.text = animeEncontrado.classificacao.toString()
-        binding.editTextArcos.text = animeEncontrado.arcos
+//        val args:DetalhesFragmentArgs by navArgs()
+//        val x = args.id + 1
+//        val animeEncontrado = db.animeDao().findById(x)
+//        binding.editTextTextnota.text = animeEncontrado.nota.toString()
+//        binding.editTextnome.text = animeEncontrado.nome
+//        binding.editTextTexteps.text = animeEncontrado.eps.toString()
+//        binding.editTextTextClassificacao.text = animeEncontrado.classificacao.toString()
+//        binding.editTextArcos.text = animeEncontrado.arcos
         setHasOptionsMenu(true)
         return binding.root
     }

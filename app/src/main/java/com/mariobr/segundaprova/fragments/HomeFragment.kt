@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LiveData
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.room.Room
@@ -40,7 +41,7 @@ class HomeFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         val adapter  = NovoAnimeAdapter()
-        val listaAnimes:MutableList<Anime> = db.animeDao().listAllAdapter()
+        val listaAnimes = db.animeDao().listAllAdapter()
         adapter.animes = listaAnimes
         binding.recyclerview.adapter = adapter
         val layout = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

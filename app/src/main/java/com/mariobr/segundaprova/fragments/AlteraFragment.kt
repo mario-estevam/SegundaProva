@@ -36,7 +36,7 @@ class AlteraFragment : Fragment() {
         bindingAltera= DataBindingUtil.inflate(inflater, R.layout.fragment_altera, container, false)
         viewModelAltera = ViewModelProvider(this,).get(AlteraViewModel::class.java)
         // Inflate the layout for this fragment
-        viewModelAltera.array =  db.animeDao().listAll()
+        val array =  db.animeDao().listAll()
         val args: AlteraFragmentArgs by navArgs()
         viewModelAltera.x = args.id.toInt()
         viewModelAltera.setAtributtes()
