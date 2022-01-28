@@ -24,7 +24,6 @@ lateinit var bindingCadastro:FragmentCadastroBinding
 class CadastroFragment : Fragment() {
     lateinit var viewModel: ViewModelCadastro
     //lateinit var newViewModelCadastro:ViewModelAnimeCadastro
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.room.Room
 import com.mariobr.segundaprova.animes.Anime
 import com.mariobr.segundaprova.animes.AppDatabase
+import com.mariobr.segundaprova.repositories.AnimeRepository
 
 class AlteraViewModelFactory(val context: Context) : ViewModelProvider.Factory {
 
@@ -17,14 +18,8 @@ class AlteraViewModelFactory(val context: Context) : ViewModelProvider.Factory {
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
-
-    val db: AppDatabase by lazy{
-        Room.databaseBuilder(
-            context!!,
-            AppDatabase::class.java, "database-name")
-            .allowMainThreadQueries()
-            .build()
-    }
+    
+    val animeDAO = AppDatabase.getDatabase(context).animeDao()
 
     var animeId = MutableLiveData<Int>(null)
     var nome = MutableLiveData<String>()
@@ -60,12 +55,12 @@ class AlteraViewModelFactory(val context: Context) : ViewModelProvider.Factory {
         }
 
     fun findByid(id:Int){
-        val animeEncontrado = db.animeDao().findById(id)
+        val animeEncontrado = animeDAO.findById(id)
         anime = animeEncontrado
     }
 
     fun saveAnime() {
-        db.animeDao().atualizar(anime)
+        animeDAO.atualizar(anime)
     }
 
 

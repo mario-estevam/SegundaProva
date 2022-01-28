@@ -37,7 +37,7 @@ class AlteraFragment : Fragment() {
 
         val args:AlteraFragmentArgs by navArgs()
         val x = args.id
-        Toast.makeText(context, x.toString(), Toast.LENGTH_SHORT).show()
+
         viewModelFactory.findByid(x.toInt())
         bindingAltera.alterar.setOnClickListener {
             viewModelFactory.saveAnime()

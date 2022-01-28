@@ -18,13 +18,7 @@ class ViewModelCadastroFactory(val context: Context) : ViewModelProvider.Factory
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 
-    val db: AppDatabase by lazy{
-        Room.databaseBuilder(
-            context!!,
-            AppDatabase::class.java, "database-name")
-            .allowMainThreadQueries()
-            .build()
-    }
+    val db = AppDatabase.getDatabase(context).animeDao()
 
     var nome = MutableLiveData<String>()
     var arcos = MutableLiveData<String>()
@@ -44,7 +38,7 @@ class ViewModelCadastroFactory(val context: Context) : ViewModelProvider.Factory
         )
 
     fun salvarAnime() {
-       db.animeDao().inserir(anime)
+       db.inserir(anime)
     }
 
 

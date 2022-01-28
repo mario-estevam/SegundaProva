@@ -28,5 +28,6 @@
     <string name="tela_detalhes">Tela de Detalhes</string>
     <string name="tela_sobre">Sobre</string>
     <string name="tela_alterar">Tela de alterar</string>
+    <string name="sobre">Sobre</string>
 
 </resources>

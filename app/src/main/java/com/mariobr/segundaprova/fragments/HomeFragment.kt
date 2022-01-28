@@ -24,7 +24,7 @@ import com.mariobr.segundaprova.viewModels.HomeFragmentViewModel
 class HomeFragment : Fragment() {
 
     lateinit var binding:FragmentHomeBinding
-    lateinit var viewModelCadastro: HomeFragmentViewModel
+    lateinit var viewModelHome: HomeFragmentViewModel
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
@@ -33,11 +33,11 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-        viewModelCadastro = ViewModelProvider(this).get(HomeFragmentViewModel::class.java)
+        viewModelHome = ViewModelProvider(this).get(HomeFragmentViewModel::class.java)
 
         val adapter  = NovoAnimeAdapter()
 
-        viewModelCadastro.listaAnimes!!.observe(viewLifecycleOwner, {
+        viewModelHome.listaAnimes!!.observe(viewLifecycleOwner, {
             adapter.animes = it
             adapter.notifyDataSetChanged()
         })

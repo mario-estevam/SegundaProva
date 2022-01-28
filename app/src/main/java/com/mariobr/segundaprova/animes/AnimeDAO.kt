@@ -11,6 +11,12 @@ interface AnimeDAO {
     @Delete
     fun delete(anime: Anime): Int
 
+    @Delete
+    fun deletarVarios(vararg anime: Anime)
+
+    @Query("DELETE FROM tb_anime")
+    fun deletaTodos()
+
     @Update
     fun atualizar(anime: Anime):Int
 
@@ -19,5 +25,6 @@ interface AnimeDAO {
 
     @Query("SELECT * FROM tb_anime WHERE id=:id")
     fun findById(id: Int):Anime
+
 
 }
