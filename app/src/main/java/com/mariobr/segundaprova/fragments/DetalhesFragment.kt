@@ -13,8 +13,6 @@ import com.mariobr.segundaprova.R
 import com.mariobr.segundaprova.animes.AppDatabase
 import com.mariobr.segundaprova.databinding.FragmentDetalhesBinding
 
-
-
 @SuppressLint("UseRequireInsteadOfGet")
 class DetalhesFragment : Fragment() {
 
@@ -35,7 +33,7 @@ class DetalhesFragment : Fragment() {
         binding= DataBindingUtil.inflate(inflater, R.layout.fragment_detalhes, container, false)
         // Inflate the layout for this fragment
         val args:DetalhesFragmentArgs by navArgs()
-        val x = args.id + 1
+        val x = args.id
         val encontrarAnime  = db.animeDao().findById(x.toInt())
         binding.editTextnome.text = encontrarAnime.nome
         binding.editTextTexteps.text = encontrarAnime.eps.toString()

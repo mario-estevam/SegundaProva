@@ -28,13 +28,12 @@ class AlteraFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         bindingAltera= DataBindingUtil.inflate(inflater, R.layout.fragment_altera, container, false)
-
         val viewModelFactory = AlteraViewModelFactory(requireContext())
         viewModelAltera = ViewModelProvider(this, viewModelFactory).get(AlteraViewModel::class.java)
         bindingAltera.alteraViewModel = viewModelFactory
 
         val args:AlteraFragmentArgs by navArgs()
-        val x = args.id + 1
+        val x = args.id
         viewModelFactory.findByid(x.toInt())
         bindingAltera.alterar.setOnClickListener {
             viewModelFactory.saveAnime()

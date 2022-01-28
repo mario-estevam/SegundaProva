@@ -48,10 +48,10 @@ class HomeFragment : Fragment() {
         binding.recyclerview.layoutManager = layout
         binding.recyclerview.addOnItemTouchListener(NovoRecyclerViewClickListener(context!!,binding.recyclerview, object : NovoRecyclerViewClickListener.onItemClickListener{
             override fun onItemClick(v: View, position: Int) {
-                Navigation.findNavController(v).navigate(HomeFragmentDirections.actionHomeFragmentToDetalhesFragment(position.toLong()))
+                Navigation.findNavController(v).navigate(HomeFragmentDirections.actionHomeFragmentToDetalhesFragment(listaAnimes[position].id.toLong()))
             }
             override fun onItemLongClick(v: View, position: Int) {
-                Navigation.findNavController(v).navigate(HomeFragmentDirections.actionHomeFragmentToAlteraFragment(position.toLong()))
+                Navigation.findNavController(v).navigate(HomeFragmentDirections.actionHomeFragmentToAlteraFragment(listaAnimes[position].id.toLong()))
             }
         }))
         setHasOptionsMenu(true)
