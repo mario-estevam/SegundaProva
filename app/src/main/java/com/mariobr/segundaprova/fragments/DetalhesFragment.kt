@@ -2,10 +2,9 @@ package com.mariobr.segundaprova.fragments
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.navArgs
 import androidx.room.Room
@@ -44,4 +43,14 @@ class DetalhesFragment : Fragment() {
         setHasOptionsMenu(true)
         return binding.root
     }
+
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.saiba -> Toast.makeText(context, "tela de exibição de detalhes do anime selecionado", Toast.LENGTH_SHORT).show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }
