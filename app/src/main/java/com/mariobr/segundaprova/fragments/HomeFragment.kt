@@ -21,6 +21,8 @@ import com.mariobr.segundaprova.adapters.NovoRecyclerViewClickListener
 import com.mariobr.segundaprova.animes.Anime
 import com.mariobr.segundaprova.animes.AppDatabase
 import com.mariobr.segundaprova.databinding.FragmentHomeBinding
+import com.mariobr.segundaprova.dialogs.CustomDialogFragment
+import com.mariobr.segundaprova.dialogs.DialogHome
 import com.mariobr.segundaprova.viewModels.HomeFragmentViewModel
 
 
@@ -29,14 +31,6 @@ class HomeFragment : Fragment() {
 
     lateinit var binding:FragmentHomeBinding
     lateinit var viewModel: HomeFragmentViewModel
-
-    val db: AppDatabase by lazy{
-        Room.databaseBuilder(
-            context!!,
-            AppDatabase::class.java, "database-name")
-            .allowMainThreadQueries()
-            .build()
-    }
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
@@ -71,9 +65,11 @@ class HomeFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.saiba -> Toast.makeText(context, "Esta é a tela inicial com a listagem dos animes", Toast.LENGTH_SHORT).show()
+            R.id.saiba -> {
+                val dialog = DialogHome()
+                dialog.show(requireActivity().supportFragmentManager,"Dialog3")
+            }
         }
         return super.onOptionsItemSelected(item)
     }
-
 }

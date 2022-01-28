@@ -11,6 +11,8 @@ import androidx.room.Room
 import com.mariobr.segundaprova.R
 import com.mariobr.segundaprova.animes.AppDatabase
 import com.mariobr.segundaprova.databinding.FragmentDetalhesBinding
+import com.mariobr.segundaprova.dialogs.DialogDetalhes
+import com.mariobr.segundaprova.dialogs.DialogHome
 
 @SuppressLint("UseRequireInsteadOfGet")
 class DetalhesFragment : Fragment() {
@@ -48,7 +50,10 @@ class DetalhesFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
-            R.id.saiba -> Toast.makeText(context, "tela de exibição de detalhes do anime selecionado", Toast.LENGTH_SHORT).show()
+            R.id.saiba -> {
+                val dialog = DialogDetalhes()
+                dialog.show(requireActivity().supportFragmentManager,"Dialog4")
+            }
         }
         return super.onOptionsItemSelected(item)
     }

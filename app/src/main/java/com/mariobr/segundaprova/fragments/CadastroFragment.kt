@@ -11,10 +11,9 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import com.mariobr.segundaprova.CustomDialogFragment
+import com.mariobr.segundaprova.dialogs.CustomDialogFragment
 import com.mariobr.segundaprova.R
 import com.mariobr.segundaprova.databinding.FragmentCadastroBinding
-import com.mariobr.segundaprova.viewModels.AlteraViewModelFactory
 import com.mariobr.segundaprova.viewModels.ViewModelCadastro
 import com.mariobr.segundaprova.viewModels.ViewModelCadastroFactory
 

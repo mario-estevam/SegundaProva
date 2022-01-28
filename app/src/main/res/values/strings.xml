@@ -24,4 +24,9 @@
     <string name="eps">eps:</string>
     <string name="alterar">Alterar</string>
     <string name="testar">Tela de cadastro</string>
+    <string name="tela_home">Tela Inicial</string>
+    <string name="tela_detalhes">Tela de Detalhes</string>
+    <string name="tela_sobre">Sobre</string>
+    <string name="tela_alterar">Tela de alterar</string>
+
 </resources>

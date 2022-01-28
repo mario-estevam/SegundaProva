@@ -5,6 +5,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -14,6 +15,8 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.mariobr.segundaprova.R
 import com.mariobr.segundaprova.databinding.FragmentAlteraBinding
+import com.mariobr.segundaprova.dialogs.DialogAlterar
+import com.mariobr.segundaprova.dialogs.DialogHome
 import com.mariobr.segundaprova.viewModels.AlteraViewModelFactory
 
 
@@ -43,6 +46,16 @@ class AlteraFragment : Fragment() {
 
         setHasOptionsMenu(true)
         return bindingAltera.root
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.saiba -> {
+                val dialog = DialogAlterar()
+                dialog.show(requireActivity().supportFragmentManager,"Dialog7")
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }
