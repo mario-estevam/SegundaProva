@@ -7,22 +7,16 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Room
-import com.google.android.material.snackbar.Snackbar
 import com.mariobr.segundaprova.R
 import com.mariobr.segundaprova.adapters.NovoAnimeAdapter
 import com.mariobr.segundaprova.adapters.NovoRecyclerViewClickListener
-import com.mariobr.segundaprova.animes.Anime
-import com.mariobr.segundaprova.animes.AppDatabase
 import com.mariobr.segundaprova.databinding.FragmentHomeBinding
-import com.mariobr.segundaprova.dialogs.CustomDialogFragment
 import com.mariobr.segundaprova.dialogs.DialogHome
+import com.mariobr.segundaprova.newViewModel.ViewModelAnimeCadastro
 import com.mariobr.segundaprova.viewModels.HomeFragmentViewModel
 
 
@@ -30,7 +24,7 @@ import com.mariobr.segundaprova.viewModels.HomeFragmentViewModel
 class HomeFragment : Fragment() {
 
     lateinit var binding:FragmentHomeBinding
-    lateinit var viewModel: HomeFragmentViewModel
+    lateinit var viewModelCadastro: HomeFragmentViewModel
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateView(
@@ -39,11 +33,11 @@ class HomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-        viewModel = ViewModelProvider(this).get(HomeFragmentViewModel::class.java)
+        viewModelCadastro = ViewModelProvider(this).get(HomeFragmentViewModel::class.java)
 
         val adapter  = NovoAnimeAdapter()
 
-        viewModel.listaAnimes?.observe(viewLifecycleOwner, {
+        viewModelCadastro.listaAnimes!!.observe(viewLifecycleOwner, {
             adapter.animes = it
             adapter.notifyDataSetChanged()
         })
