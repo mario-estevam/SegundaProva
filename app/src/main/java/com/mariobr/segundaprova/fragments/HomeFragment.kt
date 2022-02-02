@@ -16,7 +16,6 @@ import com.mariobr.segundaprova.adapters.NovoAnimeAdapter
 import com.mariobr.segundaprova.adapters.NovoRecyclerViewClickListener
 import com.mariobr.segundaprova.databinding.FragmentHomeBinding
 import com.mariobr.segundaprova.dialogs.DialogHome
-import com.mariobr.segundaprova.newViewModel.ViewModelAnimeCadastro
 import com.mariobr.segundaprova.viewModels.HomeFragmentViewModel
 
 

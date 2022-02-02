@@ -1,6 +1,6 @@
 package com.mariobr.segundaprova.fragments
 
-import AlteraViewModel
+import com.mariobr.segundaprova.viewModels.AlteraViewModel
 import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -16,31 +16,27 @@ import androidx.navigation.fragment.navArgs
 import com.mariobr.segundaprova.R
 import com.mariobr.segundaprova.databinding.FragmentAlteraBinding
 import com.mariobr.segundaprova.dialogs.DialogAlterar
-import com.mariobr.segundaprova.dialogs.DialogHome
-import com.mariobr.segundaprova.viewModels.AlteraViewModelFactory
 
 
 lateinit var bindingAltera:FragmentAlteraBinding
 @SuppressLint("UseRequireInsteadOfGet")
 class AlteraFragment : Fragment() {
 
-    lateinit var viewModelAltera:AlteraViewModel
+    lateinit var viewModelAltera: AlteraViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         bindingAltera= DataBindingUtil.inflate(inflater, R.layout.fragment_altera, container, false)
-        val viewModelFactory = AlteraViewModelFactory(requireContext())
-        viewModelAltera = ViewModelProvider(this, viewModelFactory).get(AlteraViewModel::class.java)
-        bindingAltera.alteraViewModel = viewModelFactory
-
+        viewModelAltera = ViewModelProvider(this).get(AlteraViewModel::class.java)
+        bindingAltera.alteraViewModel = viewModelAltera
         val args:AlteraFragmentArgs by navArgs()
         val x = args.id
 
-        viewModelFactory.findByid(x.toInt())
+        viewModelAltera .findByid(x.toInt())
         bindingAltera.alterar.setOnClickListener {
-            viewModelFactory.saveAnime()
+            viewModelAltera .saveAnime()
             Navigation.findNavController(it).navigate(R.id.homeFragment)
             Toast.makeText(context, "Dados alterados com sucesso!", Toast.LENGTH_SHORT).show()
         }
