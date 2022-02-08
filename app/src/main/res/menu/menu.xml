@@ -5,7 +5,7 @@
     <item android:title="@string/home" android:id="@+id/homeFragment"/>
     <item android:title="@string/cadastro" android:id="@+id/cadastroFragment"/>
     <item android:title="@string/sobre" android:id="@+id/sobreFragment"/>
-
-
+    <item android:title="Retrofit" android:id="@+id/fragmentRetrofit"/>
+    <item android:title="Listaweb" android:id="@+id/fragmentListweb"/>
 
 </menu>

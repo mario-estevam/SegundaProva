@@ -9,9 +9,9 @@ import com.mariobr.segundaprova.animes.AppDatabase
 class HomeFragmentViewModel(application: Application) : AndroidViewModel(application)  {
 
     var listaAnimes : LiveData<List<Anime>>?= null
+    val animeDAO = AppDatabase.getDatabase(application).animeDao()
 
     init {
-        val animeDAO = AppDatabase.getDatabase(application).animeDao()
          listaAnimes = animeDAO.listAll()
         }
 

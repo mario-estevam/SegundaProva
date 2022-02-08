@@ -22,6 +22,12 @@
         <action
             android:id="@+id/action_homeFragment_to_sobreFragment"
             app:destination="@id/sobreFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_fragmentRetrofit"
+            app:destination="@id/fragmentRetrofit" />
+        <action
+            android:id="@+id/action_homeFragment_to_fragmentListweb"
+            app:destination="@id/fragmentListweb" />
     </fragment>
     <fragment
         android:id="@+id/cadastroFragment"
@@ -48,4 +54,12 @@
         android:name="com.mariobr.segundaprova.fragments.SobreFragment"
         android:label="Sobre"
         tools:layout="@layout/fragment_sobre" />
+    <fragment
+        android:id="@+id/fragmentRetrofit"
+        android:name="com.mariobr.segundaprova.fragments.FragmentRetrofit"
+        android:label="FragmentRetrofit" />
+    <fragment
+        android:id="@+id/fragmentListweb"
+        android:name="com.mariobr.segundaprova.fragments.FragmentListweb"
+        android:label="FragmentListweb" />
 </navigation>

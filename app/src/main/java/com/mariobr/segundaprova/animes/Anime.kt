@@ -14,5 +14,6 @@ data class Anime (
     var classificacao:Int
 ){
     @PrimaryKey(autoGenerate = true)
-    var id:Int = 0;
+    var id = 0L;
+    constructor() :this ("", "", 0, 0, "", 0)
 }

@@ -6,33 +6,21 @@ import android.content.Context
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.mariobr.segundaprova.animes.Anime
 import com.mariobr.segundaprova.animes.AppDatabase
+import kotlinx.coroutines.launch
 
 
 class ViewModelCadastro(application: Application) : AndroidViewModel(application)  {
 
+    var anime = Anime()
     val db = AppDatabase.getDatabase(application).animeDao()
 
-    var nome = MutableLiveData<String>()
-    var arcos = MutableLiveData<String>()
-    var eps  = MutableLiveData(0)
-    var ano = MutableLiveData<Int>(0)
-    var idiomas  = MutableLiveData<String>()
-    var classificacao = MutableLiveData(0)
-
-    val anime: Anime
-        get() = Anime(
-            nome.value!!,
-            arcos.value!!,
-            eps.value!!,
-            ano.value!!,
-            idiomas.value!!,
-            classificacao.value!!
-        )
-
-    fun salvarAnime() {
-        db.inserir(anime)
+    fun cadastraAnime(){
+        viewModelScope.launch {
+            db.inserir(anime)
+        }
     }
 
 }

@@ -6,7 +6,7 @@ import androidx.room.*
 @Dao
 interface AnimeDAO {
     @Insert
-    fun inserir(anime: Anime): Long
+    suspend fun inserir(anime: Anime): Long
 
     @Delete
     fun delete(anime: Anime): Int
@@ -23,8 +23,8 @@ interface AnimeDAO {
     @Query("SELECT * FROM tb_anime")
     fun listAll(): LiveData<List<Anime>>
 
-    @Query("SELECT * FROM tb_anime WHERE id=:id")
-    fun findById(id: Int):Anime
+    @Query("SELECT * from tb_anime where id=:id")
+    fun buscarPorId(id:Int):LiveData<Anime>
 
 
 }

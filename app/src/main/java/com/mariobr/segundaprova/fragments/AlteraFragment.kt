@@ -16,25 +16,31 @@ import androidx.navigation.fragment.navArgs
 import com.mariobr.segundaprova.R
 import com.mariobr.segundaprova.databinding.FragmentAlteraBinding
 import com.mariobr.segundaprova.dialogs.DialogAlterar
+import com.mariobr.segundaprova.viewModels.DetalhesViewModel
 
 
-lateinit var bindingAltera:FragmentAlteraBinding
+
 @SuppressLint("UseRequireInsteadOfGet")
 class AlteraFragment : Fragment() {
 
+    lateinit var bindingAltera:FragmentAlteraBinding
     lateinit var viewModelAltera: AlteraViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        bindingAltera= DataBindingUtil.inflate(inflater, R.layout.fragment_altera, container, false)
-        viewModelAltera = ViewModelProvider(this).get(AlteraViewModel::class.java)
-        bindingAltera.alteraViewModel = viewModelAltera
         val args:AlteraFragmentArgs by navArgs()
-        val x = args.id
 
-        viewModelAltera .findByid(x.toInt())
+        bindingAltera= DataBindingUtil.inflate(inflater, R.layout.fragment_altera, container, false)
+        val viewModelFactory = AlteraViewModel.AlteraFragmentViewModelFactory(requireActivity().application,
+            args.id.toInt()
+        )
+        viewModelAltera = ViewModelProvider(this,viewModelFactory).get(AlteraViewModel::class.java)
+
+        bindingAltera.alteraViewModel = viewModelAltera
+        bindingAltera.lifecycleOwner = this
+
         bindingAltera.alterar.setOnClickListener {
             viewModelAltera .saveAnime()
             Navigation.findNavController(it).navigate(R.id.homeFragment)

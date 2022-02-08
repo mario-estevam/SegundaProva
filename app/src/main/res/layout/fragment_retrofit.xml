@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/textInputLayoutCep"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/buscarId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="BUSCAR POR ID"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <androidx.core.widget.ContentLoadingProgressBar
+                    android:id="@+id/progresso"
+                    style="@style/Widget.AppCompat.ProgressBar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textInputLayoutCep"
+                    tools:visibility="visible" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintLayoutInfoEndereco"
+                    android:layout_width="409dp"
+                    android:layout_height="236dp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/progresso"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/nome"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="16dp"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Nome" />
+
+                    <TextView
+                        android:id="@+id/episodios"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="@id/nome"
+                        app:layout_constraintStart_toStartOf="@id/nome"
+                        app:layout_constraintTop_toBottomOf="@id/nome"
+                        tools:text="@string/eps" />
+
+                    <TextView
+                        android:id="@+id/anoRetro"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="@id/episodios"
+                        app:layout_constraintStart_toStartOf="@id/episodios"
+                        app:layout_constraintTop_toBottomOf="@id/episodios"
+                        tools:text="ano" />
+
+                    <TextView
+                        android:id="@+id/classificRetro"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="@id/anoRetro"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@id/anoRetro"
+                        app:layout_constraintTop_toBottomOf="@id/anoRetro"
+                        tools:text="@string/classificacao" />
+
+                    <TextView
+                        android:id="@+id/arcosRetro"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="44dp"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="@id/anoRetro"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@id/anoRetro"
+                        app:layout_constraintTop_toBottomOf="@id/anoRetro"
+                        tools:text="@string/arcos" />
+
+                    <TextView
+                        android:id="@+id/idiomaRetro"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="84dp"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="@id/anoRetro"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="@id/anoRetro"
+                        app:layout_constraintTop_toBottomOf="@id/anoRetro"
+                        tools:text="@string/idiomas" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Button
+                    android:id="@+id/botaoBuscar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="Buscar"
+                    app:icon="@drawable/ic_baseline_search_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/constraintLayoutInfoEndereco" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </ScrollView>
+</layout>

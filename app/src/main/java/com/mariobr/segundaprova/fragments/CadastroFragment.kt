@@ -17,10 +17,12 @@ import com.mariobr.segundaprova.databinding.FragmentCadastroBinding
 import com.mariobr.segundaprova.viewModels.ViewModelCadastro
 
 
-lateinit var bindingCadastro:FragmentCadastroBinding
+
 
 @SuppressLint("UseRequireInsteadOfGet")
 class CadastroFragment : Fragment() {
+
+    lateinit var bindingCadastro:FragmentCadastroBinding
     lateinit var viewModel: ViewModelCadastro
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,7 +35,7 @@ class CadastroFragment : Fragment() {
 
         bindingCadastro.viewModel = viewModel
         bindingCadastro.cadastrar.setOnClickListener {
-            viewModel.salvarAnime()
+            viewModel.cadastraAnime()
             Navigation.findNavController(it).navigate(R.id.homeFragment)
             Toast.makeText(context, "Cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
         }

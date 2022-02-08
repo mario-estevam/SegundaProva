@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="viewModelD"
+            type="com.mariobr.segundaprova.viewModels.DetalhesViewModel" />
+    </data>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/detalhes"
@@ -83,11 +89,11 @@
             app:layout_constraintVertical_bias="0.514" />
 
         <TextView
-            android:id="@+id/editTextnome"
+            android:id="@+id/extnome"
             android:layout_width="157dp"
             android:layout_height="30dp"
             android:ems="10"
-            android:hint="@string/nome"
+            android:text="@{viewModelD.anime.nome}"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -98,11 +104,11 @@
             tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/editTextArcos"
+            android:id="@+id/extArcos"
             android:layout_width="155dp"
             android:layout_height="33dp"
             android:ems="10"
-            android:hint="@string/arcos"
+            android:text="@{viewModelD.anime.arcos}"
             android:minHeight="48dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -113,25 +119,26 @@
             tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/editTextTexteps"
+            android:id="@+id/exteps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/episodios"
+            android:text="@{String.valueOf(viewModelD.anime.eps)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.706"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.411"
+            tools:text="@string/eps"
             tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck" />
 
         <TextView
-            android:id="@+id/editTextTextClassificacao"
+            android:id="@+id/extClassificacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="@string/classificacao"
+            android:text="@{String.valueOf(viewModelD.anime.classificacao)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.706"
@@ -142,11 +149,11 @@
 
 
         <TextView
-            android:id="@+id/editTextAno"
+            android:id="@+id/extAno"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number"
+            android:text="@{String.valueOf(viewModelD.anime.ano)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.706"
@@ -156,10 +163,11 @@
             tools:ignore="TouchTargetSizeCheck,TouchTargetSizeCheck,SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
 
         <TextView
-            android:id="@+id/editTextIdioma"
+            android:id="@+id/extIdioma"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
+            android:text="@{viewModelD.anime.idioma}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.706"
